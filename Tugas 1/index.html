@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💡 Random Quote</h1>
+        
+        <div class="quote-box" id="quoteBox">
+            <p class="quote" id="quoteText">"Klik tombol di bawah untuk mendapatkan quote inspiratif"</p>
+            <p class="author" id="authorText">- Anonymous</p>
+        </div>
+
+        <div class="buttons">
+            <button onclick="getNewQuote()" id="newBtn">🎲 Quote Baru</button>
+            <button onclick="copyQuote()" id="copyBtn">📋 Copy</button>
+        </div>
+
+        <p class="api-info">
+            Public API: <code>/api/random</code> atau 
+            <a href="http://localhost:3000/api/random" target="_blank">Coba sekarang</a>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
