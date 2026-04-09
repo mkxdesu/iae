@@ -6,7 +6,6 @@ async function getNewQuote() {
     btn.disabled = true;
 
     try {
-        // Ambil dari dummyjson.com (public)
         const res = await fetch('https://dummyjson.com/quotes/random');
         const data = await res.json();
 
@@ -34,5 +33,4 @@ function copyQuote() {
     });
 }
 
-// Load quote pertama kali
 window.onload = getNewQuote;
