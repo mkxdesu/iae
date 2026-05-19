@@ -1,10 +1,52 @@
-type Query {
-    user(id: ID! @eq): User @find
-    users: [User!]! @all
+# ============== Scalars ==============
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+# ============== Types ==============
+type Student {
+  id: ID!
+  nim: String!
+  name: String!
+  email: String!
+  address: String!
+  phone: String!
+  created_at: DateTime
+  updated_at: DateTime
 }
 
-type User {
-    id: ID!
-    name: String!
-    email: String!
+# ============== Input Types ==============
+input CreateStudentInput {
+  nim: String!
+  name: String!
+  email: String!
+  address: String!
+  phone: String!
+}
+
+input UpdateStudentInput {
+  nim: String
+  name: String
+  email: String
+  address: String
+  phone: String
+}
+
+# ============== Query ==============
+type Query {
+  # Get all students
+  students: [Student!]! @all
+
+  # Get single student by ID
+  student(id: ID! @eq): Student @find
+}
+
+# ============== Mutation ==============
+type Mutation {
+  # Create
+  createStudent(input: CreateStudentInput!): Student @create
+
+  # Update
+  updateStudent(id: ID!, input: UpdateStudentInput!): Student @update
+
+  # Delete
+  deleteStudent(id: ID!): Student @delete
 }
